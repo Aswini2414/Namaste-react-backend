@@ -29,7 +29,8 @@ app.get("/api/restaurants", async(req, res) => {
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
             },
         });
-        res.json(response);
+        const data = await response.json();
+        res.status(200).json(data);
     
     } catch (error) {
         res.status(400).json(error);
