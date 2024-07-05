@@ -47,9 +47,9 @@ app.post("/api/restaurants/update", async (req, res) => {
         const url = "https://www.swiggy.com/dapi/restaurants/list/update";
 
         const requestData = {
-          lat: lat,
-          lng: lng,
-          nextOffset: "CJhlELQ4KIDglJfcwZfeFzCnEzgE",
+          lat,
+          lng,
+          nextOffset: "CJhlELQ4KICw+IK93ceoYjCnEzgE",
           widgetOffset: {
             NewListingView_category_bar_chicletranking_TwoRows: "",
             NewListingView_category_bar_chicletranking_TwoRows_Rendition: "",
@@ -66,7 +66,7 @@ app.post("/api/restaurants/update", async (req, res) => {
             apiName: "FoodHomePage",
           },
           page_type: "DESKTOP_WEB_LISTING",
-          _csrf: "797kayyYPv8e-85PDoCOhUOhO3-JepX0vY5wku94",
+          _csrf: "ZWl1iNh6LYkY-0ReKPkxLLm0CTx-nJV4LTbb0DkA",
         };
 
         const response = await fetch(url, {
@@ -82,7 +82,7 @@ app.post("/api/restaurants/update", async (req, res) => {
 
         console.log(response);
         const data = await response.json();
-        console.log(data);
+        console.log(data.status,data);
         res.status(200).json(data);
 
     } catch (error) {
