@@ -70,7 +70,7 @@ app.post("/api/restaurants/update", async (req, res) => {
         };
         console.log(requestData);
 
-        const response = await fetch(url, {
+        fetch(url, {
           method: "post",
           headers: {
             "Content-Type": "application/json",
@@ -79,7 +79,21 @@ app.post("/api/restaurants/update", async (req, res) => {
               "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
           },
           body: JSON.Stringify(requestData),
-        });
+        }).then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            console.log(response);
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            res.json(data);
+          })
+          .catch((error) => {
+            console.error(error);
+            res.status(500).send("An error occurred");
+          });
 
         console.log(response);
         const data = await response.json();
