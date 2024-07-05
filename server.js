@@ -68,9 +68,10 @@ app.post("/api/restaurants/update", async (req, res) => {
           page_type: "DESKTOP_WEB_LISTING",
           _csrf: "ZWl1iNh6LYkY-0ReKPkxLLm0CTx-nJV4LTbb0DkA",
         };
+        console.log(requestData);
 
         const response = await fetch(url, {
-          method: "POST",
+          method: "post",
           headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
