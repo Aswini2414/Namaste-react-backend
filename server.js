@@ -40,6 +40,7 @@ app.get("/api/restaurants", async (req, res) => {
 app.post("/api/restaurants/update", async (req, res) => {
     try {
         const { lat, lng, count } = req.body;
+        console.log(req.body);
         console.log(lat, lng, count);
 
         const url = "https://www.swiggy.com/dapi/restaurants/list/update";
