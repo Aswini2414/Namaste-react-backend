@@ -30,8 +30,9 @@ app.get("/api/restaurants", async (req, res) => {
       },
     });
         console.log(response);
-    const res1 = response.json();
-    res.status(200).json(res1);  
+        const res12 = response.json();
+        console.log(res12);
+    res.status(200).json(res12);  
     } catch (error) {
         res.status(400).json(error);
     }
