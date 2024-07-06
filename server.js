@@ -49,7 +49,7 @@ app.post("/api/restaurants/update", async (req, res) => {
         const requestData = {
           lat,
           lng,
-          nextOffset: "CJhlELQ4KICw+IK93ceoYjCnEzgE",
+          nextOffset: "CJhlELQ4KIDI6L3Z+/1fMKcTOAE=",
           widgetOffset: {
             NewListingView_category_bar_chicletranking_TwoRows: "",
             NewListingView_category_bar_chicletranking_TwoRows_Rendition: "",
@@ -66,7 +66,7 @@ app.post("/api/restaurants/update", async (req, res) => {
             apiName: "FoodHomePage",
           },
           page_type: "DESKTOP_WEB_LISTING",
-          _csrf: "ZWl1iNh6LYkY-0ReKPkxLLm0CTx-nJV4LTbb0DkA",
+          _csrf: "ORQ7BAsCWsIj-xqLVDgw5OIojGI_4ZdTV3VqRAV8",
         };
         console.log(requestData);
 
@@ -81,6 +81,7 @@ app.post("/api/restaurants/update", async (req, res) => {
           body: JSON.stringify(requestData),
         }).then((response) => {
             if (!response.ok) {
+             console.log(response);
               throw new Error("Network response was not ok");
             }
             console.log(response);
@@ -94,11 +95,6 @@ app.post("/api/restaurants/update", async (req, res) => {
             console.error(error);
             res.status(500).send("An error occurred");
           });
-
-        console.log(response);
-        const data = await response.json();
-        console.log(data.status,data);
-        res.status(200).json(data);
 
     } catch (error) {
       res.status(400).json(error);
