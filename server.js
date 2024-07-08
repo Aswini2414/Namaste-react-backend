@@ -106,7 +106,7 @@ app.post("/api/restaurants/update", async (req, res) => {
 app.get("/api/mindFoodRestaurants", async (req, res) => {
   try {
     const { itemId, item } = req.query;
-
+    console.log(itemId, item);
     const url =
       `https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&collection=${Number(itemId)}&tags=layout_CCS_${item}&sortBy=&filters=&type=rcv2&offset=0&page_type=null`;
     const mindFoodRest = await fetch(url, {
@@ -117,8 +117,9 @@ app.get("/api/mindFoodRestaurants", async (req, res) => {
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
       }
     });
-
+    console.log(mindFoodRest);
     const data = await mindFoodRest.json();
+    console.log(data);
     res.status(200).json(data);
     
   } catch (error) {
