@@ -131,7 +131,7 @@ app.get("/api/mindFoodRestaurant", async (req, res) => {
   try {
     const { resId,lat,lng } = req.query;
     const url =
-      `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${resId}`;
+      `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${Number(resId)}`;
     
     const rest = await fetch(url, {
       headers: {
@@ -141,8 +141,10 @@ app.get("/api/mindFoodRestaurant", async (req, res) => {
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
       },
     });
+    console.log(rest);
 
     const data = await rest.json();
+    console.log(data);
     res.status(200).json(data);
   } catch (error) {
     res.status(400).json(error);
