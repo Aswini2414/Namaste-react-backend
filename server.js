@@ -112,7 +112,7 @@ app.get("/api/mindFoodRestaurants", async (req, res) => {
     console.log(itemId, item);
     const url =
       `https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&collection=${Number(itemId)}&tags=layout_CCS_${item}&sortBy=&filters=&type=rcv2&offset=0&page_type=null`;
-    const mindFoodRest = await fetch(url, {
+    const mindFoodRest = await axios.get(url, {
       headers: {
         "Accept": "*/*",
         "Accept-Encoding": "gzip, deflate, br",
@@ -126,10 +126,10 @@ app.get("/api/mindFoodRestaurants", async (req, res) => {
           "__SW=4A9pX8ZcMEjpv_Vir_wsPZi6x8K80PSp; _device_id=9ab785da-e861-0b30-65c1-1dfb65e85d11; userLocation={%22lat%22:%2216.30070%22%2C%22lng%22:%2280.46390%22%2C%22address%22:%22%22%2C%22area%22:%22%22%2C%22showUserDefaultAddressHint%22:false}; fontsLoaded=1; _gcl_au=1.1.323027785.1720247552; _gid=GA1.2.723411596.1720445219; _guest_tid=4b423a4b-18dd-4b24-b293-882770678dd0; _sid=euz255a8-b7ab-4271-afc0-ebce223febd5; _ga=GA1.2.2088847275.1720247552; _ga_34JYJ0BCRN=GS1.1.1720506015.5.1.1720506035.0.0.0; _gat_UA-53591212-4=1; _ga_4BQKMMC7Y9=GS1.2.1720506034.2.1.1720506151.60.0.0",
         "Dnt": "1",
         "Pragma": "no-cache",
-      },
-    });
+      }
+    })
     console.log(mindFoodRest);
-    const data = await mindFoodRest.json();
+    const data = mindFoodRest.data;
     console.log(data);
     res.status(200).json(data);
     
