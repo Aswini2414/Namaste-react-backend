@@ -125,4 +125,26 @@ app.get("/api/mindFoodRestaurants", async (req, res) => {
   } catch (error) {
     res.status(400).json(error);
   }
+});
+
+app.get("/api/mindFoodRestaurant", async (req, res) => {
+  try {
+    const { resId,lat,lng } = req.query;
+    const url =
+      `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${resId}`;
+    
+    const rest = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
+      },
+    });
+
+    const data = await rest.json();
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(400).json(error);
+  }
 })
