@@ -129,16 +129,26 @@ app.get("/api/mindFoodRestaurants", async (req, res) => {
 
 app.get("/api/mindFoodRestaurant", async (req, res) => {
   try {
-    const { resId,lat,lng } = req.query;
+    const { resId, lat, lng } = req.query;
+    console.log(lat, lng, resId);
     const url =
       `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${Number(resId)}`;
     
     const rest = await fetch(url, {
       headers: {
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Accept-Language": "en-US,en;q=0.9,hi;q=0.8",
         "Content-Type": "application/json",
+        "Cache-Control": "no-cache",
         "Access-Control-Allow-Origin": "*",
         "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+        "Cookie":
+          "__SW=4A9pX8ZcMEjpv_Vir_wsPZi6x8K80PSp; _device_id=9ab785da-e861-0b30-65c1-1dfb65e85d11; userLocation={%22lat%22:%2216.30070%22%2C%22lng%22:%2280.46390%22%2C%22address%22:%22%22%2C%22area%22:%22%22%2C%22showUserDefaultAddressHint%22:false}; fontsLoaded=1; _gcl_au=1.1.323027785.1720247552; _gid=GA1.2.723411596.1720445219; _guest_tid=4b423a4b-18dd-4b24-b293-882770678dd0; _sid=euz255a8-b7ab-4271-afc0-ebce223febd5; _ga=GA1.2.2088847275.1720247552; _ga_34JYJ0BCRN=GS1.1.1720506015.5.1.1720506035.0.0.0; _gat_UA-53591212-4=1; _ga_4BQKMMC7Y9=GS1.2.1720506034.2.1.1720506151.60.0.0",
+        "Dnt": "1",
+        "Pragma": "no-cache",
+        
       },
     });
     console.log(rest);
