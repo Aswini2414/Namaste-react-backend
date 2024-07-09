@@ -71,7 +71,11 @@ app.post("/api/restaurants/update", async (req, res) => {
     };
     console.log(requestData);
 
-    const response = await axios.post(url, requestData);
+    const response = await axios.post(url, requestData, {
+      headers: {
+        "Accept": "*/*"
+      }
+    });
     console.log(response);
     const apidata = response.data;
     console.log(apidata);
