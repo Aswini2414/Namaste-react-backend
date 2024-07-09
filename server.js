@@ -88,6 +88,10 @@ app.post("/api/restaurants/update", async (req, res) => {
         "Sec-Fetch-Dest": "empty",
         "Sec-Fetch-Mode": "cors",
         "Sec-Fetch-Site": "same-origin",
+        "Dnt": "1",
+        "Origin": "https://www.swiggy.com",
+        "Pragma": "no-cache",
+        "Referer": "https://www.swiggy.com/",
       },
     });
     console.log(response);
