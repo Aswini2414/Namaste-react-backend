@@ -82,8 +82,8 @@ app.post("/api/restaurants/update", async (req, res) => {
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
         "Content-Length": JSON.stringify(requestData).length,
-        "Cookie":
-          "__SW=4A9pX8ZcMEjpv_Vir_wsPZi6x8K80PSp; _device_id=9ab785da-e861-0b30-65c1-1dfb65e85d11; fontsLoaded=1; _gcl_au=1.1.323027785.1720247552; _gid=GA1.2.723411596.1720445219; _guest_tid=9f028aec-58a0-4023-91b4-bdf8e5819151; _sid=ev38c1ad-c36f-49f0-9307-75e5acbd9ab8; _gat_0=1; dadl=true; _gat_UA-53591212-4=1; userLocation={%22lat%22:17.406498%2C%22lng%22:78.47724389999999%2C%22address%22:%22Hyderabad%2C%20Telangana%2C%20India%22%2C%22area%22:%22%22%2C%22showUserDefaultAddressHint%22:false}; _ga_4BQKMMC7Y9=GS1.2.1720517693.3.0.1720517693.60.0.0; _ga_34JYJ0BCRN=GS1.1.1720517657.6.1.1720517708.0.0.0; _ga=GA1.2.2088847275.1720247552",
+        // "Cookie":
+        //   "__SW=4A9pX8ZcMEjpv_Vir_wsPZi6x8K80PSp; _device_id=9ab785da-e861-0b30-65c1-1dfb65e85d11; fontsLoaded=1; _gcl_au=1.1.323027785.1720247552; _gid=GA1.2.723411596.1720445219; _guest_tid=9f028aec-58a0-4023-91b4-bdf8e5819151; _sid=ev38c1ad-c36f-49f0-9307-75e5acbd9ab8; _gat_0=1; dadl=true; _gat_UA-53591212-4=1; userLocation={%22lat%22:17.406498%2C%22lng%22:78.47724389999999%2C%22address%22:%22Hyderabad%2C%20Telangana%2C%20India%22%2C%22area%22:%22%22%2C%22showUserDefaultAddressHint%22:false}; _ga_4BQKMMC7Y9=GS1.2.1720517693.3.0.1720517693.60.0.0; _ga_34JYJ0BCRN=GS1.1.1720517657.6.1.1720517708.0.0.0; _ga=GA1.2.2088847275.1720247552",
         "Dnt": "1",
         "Origin": "https://www.swiggy.com",
         "Pragma": "no-cache",
@@ -213,4 +213,5 @@ app.post("/api/mindFoodRestaurants/update", async (req, res) => {
   } catch (error) {
     res.status(400).json(error);
   }
-})
+});
+
