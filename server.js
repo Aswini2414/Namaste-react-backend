@@ -76,6 +76,8 @@ app.post("/api/restaurants/update", async (req, res) => {
         Accept: "*/*",
         "Access-Control-Allow-Origin": "*",
         "Accept-Encoding": "gzip, deflate, br",
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache",
       },
     });
     console.log(response);
