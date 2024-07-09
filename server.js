@@ -73,22 +73,7 @@ app.post("/api/restaurants/update", async (req, res) => {
 
     const response = await axios.post(url, requestData, {
       headers: {
-        Accept: "*/*",
-        "Access-Control-Allow-Origin": "*",
-        "Accept-Encoding": "gzip, deflate, br",
-        "Content-Type": "application/json",
-        "Cache-Control": "no-cache",
-        "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
-        "Content-Length": JSON.stringify(requestData).length,
-        "Sec-Ch-Ua":
-          '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
-        "Sec-Ch-Ua-Mobile": "?0",
-        "Sec-Ch-Ua-Platform": '"Windows"',
-        "Sec-Fetch-Dest": "empty",
-        "Sec-Fetch-Mode": "cors",
-        "Sec-Fetch-Site": "same-origin",
-        "Origin": "https://www.swiggy.com",
+        "Origin": "https://www.swiggy.com",//main important header
       },
     });
     console.log(response);
