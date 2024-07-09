@@ -73,8 +73,9 @@ app.post("/api/restaurants/update", async (req, res) => {
 
     const response = await axios.post(url, requestData, {
       headers: {
-        "Accept": "*/*",
+        Accept: "*/*",
         "Access-Control-Allow-Origin": "*",
+        "Accept-Encoding": "gzip, deflate, br",
       },
     });
     console.log(response);
