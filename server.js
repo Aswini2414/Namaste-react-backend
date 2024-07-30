@@ -41,7 +41,7 @@ app.get("/api/restaurants", async (req, res) => {
 
 app.post("/api/restaurants/update", async (req, res) => {
   try {
-    const { lat, lng, count } = req.body;
+    const { lat, lng, count, csrfToken, nextOffset, widgetOffset } = req.body;
     console.log(req.body);
     console.log(lat, lng, count);
 
@@ -50,16 +50,8 @@ app.post("/api/restaurants/update", async (req, res) => {
     const requestData = {
       lat,
       lng,
-      nextOffset: "CJhlELQ4KIDI6L3Z+/1fMKcTOAE=",
-      widgetOffset: {
-        NewListingView_category_bar_chicletranking_TwoRows: "",
-        NewListingView_category_bar_chicletranking_TwoRows_Rendition: "",
-        Restaurant_Group_WebView_PB_Theme: "",
-        Restaurant_Group_WebView_SEO_PB_Theme: "",
-        collectionV5RestaurantListWidget_SimRestoRelevance_food_seo: count,
-        inlineFacetFilter: "",
-        restaurantCountWidget: "",
-      },
+      nextOffset: nextOffset,
+      widgetOffset: widgetOffset,
       filters: {},
       seoParams: {
         seoUrl: "https://www.swiggy.com/",
@@ -67,9 +59,36 @@ app.post("/api/restaurants/update", async (req, res) => {
         apiName: "FoodHomePage",
       },
       page_type: "DESKTOP_WEB_LISTING",
-      _csrf: "ORQ7BAsCWsIj-xqLVDgw5OIojGI_4ZdTV3VqRAV8",
+      _csrf: csrfToken
     };
     console.log(requestData);
+
+
+
+// const requestData = {
+//   lat,
+//   lng,
+//   nextOffset: "CJhlELQ4KIDI6L3Z+/1fMKcTOAE=",
+//   widgetOffset: {
+//     NewListingView_category_bar_chicletranking_TwoRows: "",
+//     NewListingView_category_bar_chicletranking_TwoRows_Rendition: "",
+//     Restaurant_Group_WebView_PB_Theme: "",
+//     Restaurant_Group_WebView_SEO_PB_Theme: "",
+//     collectionV5RestaurantListWidget_SimRestoRelevance_food_seo: count,
+//     inlineFacetFilter: "",
+//     restaurantCountWidget: "",
+//   },
+//   filters: {},
+//   seoParams: {
+//     seoUrl: "https://www.swiggy.com/",
+//     pageType: "FOOD_HOMEPAGE",
+//     apiName: "FoodHomePage",
+//   },
+//   page_type: "DESKTOP_WEB_LISTING",
+//   _csrf: "ORQ7BAsCWsIj-xqLVDgw5OIojGI_4ZdTV3VqRAV8",
+// };
+
+
 
     const response = await axios.post(url, requestData, {
       headers: {
