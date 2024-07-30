@@ -116,7 +116,7 @@ app.post("/api/restaurants/update", async (req, res) => {
 app.get("/api/mindFoodRestaurants", async (req, res) => {
   try {
     const { itemId, item,lat,log } = req.query;
-    console.log(itemId, item);
+    console.log(itemId, item,log);
     const url =
       `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${log}&collection=${Number(itemId)}&tags=layout_CCS_${item}&sortBy=&filters=&type=rcv2&offset=0&page_type=null`;
     const mindFoodRest = await axios.get(url, {
